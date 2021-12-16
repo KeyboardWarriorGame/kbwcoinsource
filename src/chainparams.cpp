@@ -99,13 +99,14 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].bit = 1;
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 1485561600; // January 28, 2017
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1517356801; // January 31st, 2018
+	*/
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x000000000000000000000000000000000000000000000006805c7318ce2736c0");
+        consensus.nMinimumChainWork = uint256S("0x000000000000000000000000000000000000000000000000000000003ee02fa4");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x1673fa904a93848eca83d5ca82c7af974511a7e640e22edc2976420744f2e56a"); //1155631
-		*/
+        consensus.defaultAssumeValid = uint256S("0x7801fe14776c86bbc587ada6272a3a001bc37a90b56bce648da96ee1ab54e192");
+		
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -116,7 +117,7 @@ public:
         pchMessageStart[1] = 0xca;
         pchMessageStart[2] = 0x26;
         pchMessageStart[3] = 0xd1;
-        nDefaultPort = 88888;
+        nDefaultPort = 58888;
         nPruneAfterHeight = 100000;
 
         genesis = CreateGenesisBlock(1637533352, 2002727817, 0x1e0ffff0, 1, 0 * COIN);
@@ -125,12 +126,10 @@ public:
         assert(consensus.hashGenesisBlock == uint256S("0x4f986801e82571f027d8ec032e40b449c6698a71e1d089b2d285ef03c8862d10"));
 
         // Note that of those with the service bits flag, most only support a subset of possible options
+
         vSeeds.push_back(CDNSSeedData("185.163.118.233", "185.163.118.233", true));
         vSeeds.push_back(CDNSSeedData("188.68.52.16", "188.68.52.16", true));
-        //vSeeds.push_back(CDNSSeedData("188.68.52.16", "188.68.52.16", true));
-        //vSeeds.push_back(CDNSSeedData("188.68.52.16", "188.68.52.16", true));
-        //vSeeds.push_back(CDNSSeedData("188.68.52.16", "188.68.52.16", true));
-        //vSeeds.push_back(CDNSSeedData("188.68.52.16", "188.68.52.16", true));
+        vSeeds.push_back(CDNSSeedData("45.77.150.151", "45.77.150.151", true));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,45);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,5);
@@ -153,14 +152,18 @@ public:
             (  2, uint256S("0x313643b7b27ce17828fd16800a4cb3ccd839f35152827b95b16b1c2753e3c61b"))
             (  3, uint256S("0xd359189942af0104985da6638bc293409cdefc689751e7cee28d9e71666c05ef"))
             (  11, uint256S("0x716f1e536e2f05333b8590f9365a4586a0da45c613d1b72f1b2db0bce42b7125"))
+            (  50, uint256S("0x70b570392246d0387ce9a7083e3fcb60b09e27d59dfa9ed2f7353de9324057f2"))
+            (  100, uint256S("0x054b94453b7251af289b0993f80f65a373af54d91242675ab678d5a4696a0312"))
+            (  240, uint256S("0x7801fe14776c86bbc587ada6272a3a001bc37a90b56bce648da96ee1ab54e192"))
+
         };
 
         chainTxData = ChainTxData{
             // Data as of block b44bc5ae41d1be67227ba9ad875d7268aa86c965b1d64b47c35be6e8d5c352f4 (height 1155626).
-            1637533352, // * UNIX timestamp of last known number of transactions
-            0,  // * total number of transactions between genesis and that timestamp
+            1639676933, // * UNIX timestamp of last known number of transactions
+            241,  // * total number of transactions between genesis and that timestamp
                     //   (the tx=... number in the SetBestChain debug.log lines)
-            0.0     // * estimated number of transactions per second after that timestamp
+            1.000000     // * estimated number of transactions per second after that timestamp
         };
     }
 };
@@ -213,7 +216,7 @@ public:
         pchMessageStart[1] = 0xf2;
         pchMessageStart[2] = 0xcc;
         pchMessageStart[3] = 0xfa;
-        nDefaultPort = 88889;
+        nDefaultPort = 58889;
         nPruneAfterHeight = 1000;
 
         genesis = CreateGenesisBlock(1637533352, 731625, 0x1e0ffff0, 1, 0 * COIN);
@@ -304,7 +307,7 @@ public:
         pchMessageStart[1] = 0xbb;
         pchMessageStart[2] = 0xbc;
         pchMessageStart[3] = 0xdd;
-        nDefaultPort = 88890;
+        nDefaultPort = 58890;
         nPruneAfterHeight = 1000;
 
         genesis = CreateGenesisBlock(1637533352, 0, 0x207fffff, 1, 0 * COIN);
